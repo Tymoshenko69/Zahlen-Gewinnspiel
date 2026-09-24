@@ -12,6 +12,13 @@ public class GewinnModel {
         this.random = new Random();
     }
 
+    public void reset() {
+        this.gesamtPunkte = 30;
+        this.spielerZahl = 0;
+        this.computerZahl = 0;
+        this.rundenErgebnis = 0;
+    }
+
     public int getGesamtPunkte() {
         return gesamtPunkte;
     }
@@ -50,6 +57,6 @@ public class GewinnModel {
     }
 
     public boolean hatVerloren() {
-        return gesamtPunkte <= 0;
+        return gesamtPunkte < 0;
     }
 }

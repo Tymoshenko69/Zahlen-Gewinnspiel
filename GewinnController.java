@@ -49,8 +49,9 @@ public class GewinnController {
                 view.getLblRundenErgebnis().setText(erg > 0 ? "+" + erg : String.valueOf(erg));
             }
 
-            view.getTxtSpielerZahl().setEnabled(false);
-            view.getBtnReset().setEnabled(true);
+            boolean verloren = model.hatVerloren();
+            view.getTxtSpielerZahl().setEnabled(!verloren);
+            view.getBtnReset().setEnabled(verloren);
 
             if (model.getRundenErgebnis() > 0 || model.hatGewonnen()) {
                 view.getLblRundenErgebnis().setBackground(Color.GREEN);
@@ -66,9 +67,11 @@ public class GewinnController {
     }
 
     private void resetRunde() {
+        model.reset();
         view.getTxtSpielerZahl().setText("");
         view.getTxtComputerZahl().setText("");
         view.getLblRundenErgebnis().setText("");
+        view.getLblGesamtpunkte().setText(String.valueOf(model.getGesamtPunkte()));
 
         view.getTxtSpielerZahl().setEnabled(true);
         view.getBtnReset().setEnabled(false);
