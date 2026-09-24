@@ -49,9 +49,19 @@ public class GewinnController {
                 view.getLblRundenErgebnis().setText(erg > 0 ? "+" + erg : String.valueOf(erg));
             }
 
+<<<<<<< HEAD
             view.getTxtSpielerZahl().setEnabled(false);
             view.getBtnReset().setEnabled(true);
 
+=======
+            if (model.getRundenErgebnis() > 0 || model.hatGewonnen()) {
+                view.getLblRundenErgebnis().setBackground(Color.GREEN);
+                view.getLblGesamtpunkte().setBackground(Color.GREEN);
+            } else {
+                view.getLblRundenErgebnis().setBackground(Color.RED);
+                view.getLblGesamtpunkte().setBackground(Color.RED);
+            }
+>>>>>>> version-2.0
 
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(view, "Ungültige Eingabe! Bitte eine Zahl eingeben.");
@@ -63,8 +73,13 @@ public class GewinnController {
         view.getTxtComputerZahl().setText("");
         view.getLblRundenErgebnis().setText("");
 
+<<<<<<< HEAD
         view.getTxtSpielerZahl().setEnabled(true);
         view.getBtnReset().setEnabled(false);
+=======
+        view.getLblRundenErgebnis().setBackground(Color.WHITE);
+        view.getLblGesamtpunkte().setBackground(Color.WHITE);
+>>>>>>> version-2.0
     }
 
     public static void main(String[] args) {
