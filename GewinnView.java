@@ -7,7 +7,7 @@ public class GewinnView extends JFrame {
     private JTextField txtSpielerZahl;
     private JTextField txtComputerZahl;
     private JButton btnReset;
-    
+
     public GewinnView() {
         setTitle("Zahlen-Gewinnspiel (v1.0)");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,4 +61,10 @@ public class GewinnView extends JFrame {
 
         setLocationRelativeTo(null);
     }
+
+    public JLabel getLblRundenErgebnis() { return lblRundenErgebnis; }
+    public JLabel getLblGesamtpunkte() { return lblGesamtpunkte; }
+    public JTextField getTxtSpielerZahl() { return txtSpielerZahl; }
+    public JTextField getTxtComputerZahl() { return txtComputerZahl; }
+    public JButton getBtnReset() { return btnReset; }
 }
