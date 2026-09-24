@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class GewinnController {
     private GewinnModel model;
     private GewinnView view;
-    
+
     public GewinnController(GewinnModel model, GewinnView view) {
         this.model = model;
         this.view = view;
@@ -49,6 +49,14 @@ public class GewinnController {
                 view.getLblRundenErgebnis().setText(erg > 0 ? "+" + erg : String.valueOf(erg));
             }
 
+            if (model.getRundenErgebnis() > 0 || model.hatGewonnen()) {
+                view.getLblRundenErgebnis().setBackground(Color.GREEN);
+                view.getLblGesamtpunkte().setBackground(Color.GREEN);
+            } else {
+                view.getLblRundenErgebnis().setBackground(Color.RED);
+                view.getLblGesamtpunkte().setBackground(Color.RED);
+            }
+
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(view, "Ungültige Eingabe! Bitte eine Zahl eingeben.");
         }
@@ -58,6 +66,9 @@ public class GewinnController {
         view.getTxtSpielerZahl().setText("");
         view.getTxtComputerZahl().setText("");
         view.getLblRundenErgebnis().setText("");
+
+        view.getLblRundenErgebnis().setBackground(Color.WHITE);
+        view.getLblGesamtpunkte().setBackground(Color.WHITE);
     }
 
     public static void main(String[] args) {
